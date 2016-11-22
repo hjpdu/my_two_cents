@@ -2,10 +2,11 @@
   angular.module('two-cents')
          .factory('PostService', PostService);
 
-PostService.$inject = [];
+PostService.$inject = ['$http'];
 
-function PostService(){
+function PostService($http){
   var posts = [];
+  var baseURL = '/posts/';
   init();
   return {
     getAll: getAll,
@@ -15,8 +16,18 @@ function PostService(){
     delete: deleteOne
   };
 
-  function init(){}
-  function getAll(){}
+  function init(){
+    $http.get(baseURL)
+         .then(function(response){
+           posts = response.data.posts;
+         })
+         .catch(function(err){
+           console.log(err);
+         });
+        }
+  function getAll(){
+    return posts;
+  }
   function getOne(id){}
   function create(newPost){}
   function update(id, updatedPost){}

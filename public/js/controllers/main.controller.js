@@ -5,11 +5,12 @@
   MainController.$inject = ['$scope', 'PostService'];
 
   function MainController($scope, PostService){
-    $scope.name = name;
-    $scope.stuff = stuff;
+    $scope.posts = PostService.getAll;
 
-    function stuff(){
-      alert('i also work');
-    }
+    $scope.$watch(function(){
+      return PostService.getAll();
+    },function(){
+      $scope.posts = PostService.getAll();
+    });
   }
 }());
