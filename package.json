@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/lightbae/my_two_cents/issues"
   },
-  "homepage": "https://github.com/lightbae/my_two_cents#readme"
+  "homepage": "https://github.com/lightbae/my_two_cents#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.8"
+  }
 }
