@@ -3,6 +3,13 @@
   .controller('MainController', MainController);
 
   MainController.$inject = ['$scope'];
+
+  function MainController($scope){
     $scope.name = name;
-  function MainController($scope){}
+    $scope.stuff = stuff;
+
+    function stuff(){
+      alert('i also work');
+    }
+  }
 }());
