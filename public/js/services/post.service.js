@@ -29,7 +29,15 @@ function PostService($http){
     return posts;
   }
   function getOne(id){}
-  function create(newPost){}
+  function create(newPost){
+    $http.post(baseURL, newPost)
+         .then(function(responst){
+           init();
+         })
+         .catch(function(error){
+           console.log(error);
+         });
+  }
   function update(id, updatedPost){}
   function deleteOne(id){}
 }
