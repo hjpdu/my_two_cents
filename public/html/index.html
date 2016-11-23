@@ -19,8 +19,18 @@
       <textarea rows="8" cols="80" ng-model='newPost.body'></textarea><br>
       <button class="btn btn-default" ng-click='create(newPost)'>Create</button>
 
-<hr>
-<hr>
+      <hr>
+      Get One:
+      <input type="text" ng-model='getId'>
+      <button class='btn btn-success' ng-click='getOne(getId)'>Get One</button>
+      <hr>
+      Update:
+      <input type="text" ng-model='updateId'>
+      <input type="text" ng-model='updatedPost.author'>
+      <input type="text" ng-model='updatedPost.title'>
+      <textarea  rows="8" cols="80" ng-model='updatedPost.body'></textarea>
+      <button ng-click='updatePost(updateId, updatedPost)'>Update</button>
+      <hr>
       <pre>
         {{deleteId}}
       </pre>

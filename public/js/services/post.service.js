@@ -38,7 +38,15 @@ function PostService($http){
            console.log(error);
          });
   }
-  function update(id, updatedPost){}
+  function update(id, updatedPost){
+    $http.put(baseURL + id, updatedPost)
+         .then(function(response){
+           init();
+         })
+         .catch(function(error){
+           console.log(error);
+         });
+  }
   function deleteOne(id){
     $http.delete(baseURL + id)
           .then(function(response){
