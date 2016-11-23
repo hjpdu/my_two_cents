@@ -31,7 +31,7 @@ function PostService($http){
   function getOne(id){}
   function create(newPost){
     $http.post(baseURL, newPost)
-         .then(function(responst){
+         .then(function(response){
            init();
          })
          .catch(function(error){
@@ -39,7 +39,15 @@ function PostService($http){
          });
   }
   function update(id, updatedPost){}
-  function deleteOne(id){}
+  function deleteOne(id){
+    $http.delete(baseURL + id)
+          .then(function(response){
+            init();
+          })
+          .catch(function(err){
+            console.log(err);
+          });
+  }
 }
 
 }());

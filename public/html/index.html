@@ -7,6 +7,10 @@
   </head>
   <body>
     <div ng-controller='MainController'>
+      Delete:
+      <input type="text" ng-model='deleteId'><br>
+      <button class='btn btn-success' ng-click='delete(deleteId)'>Bye</button><br>
+
       Author:
       <input type="text" ng-model='newPost.author'><br>
       Title:
@@ -14,6 +18,12 @@
       Body:
       <textarea rows="8" cols="80" ng-model='newPost.body'></textarea><br>
       <button class="btn btn-default" ng-click='create(newPost)'>Create</button>
+
+<hr>
+<hr>
+      <pre>
+        {{deleteId}}
+      </pre>
       <pre>
         {{posts | json}}
       </pre>
