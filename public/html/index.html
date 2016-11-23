@@ -21,15 +21,17 @@
 
       <hr>
       Get One:
-      <input type="text" ng-model='getId'>
-      <button class='btn btn-success' ng-click='getOne(getId)'>Get One</button>
+      <input type="text" ng-model='getId'><br>
+      <button class='btn btn-success' ng-click='getOne(getId)'>Get One</button><br>
+      {{ selectedPost }}
+      <button class='btn btn-default' ng-click='getSelectedPost()'>Get Select</button>
       <hr>
       Update:
-      <input type="text" ng-model='updateId'>
-      <input type="text" ng-model='updatedPost.author'>
-      <input type="text" ng-model='updatedPost.title'>
-      <textarea  rows="8" cols="80" ng-model='updatedPost.body'></textarea>
-      <button ng-click='updatePost(updateId, updatedPost)'>Update</button>
+      <input type="text" ng-model='updateId'><br>
+      <input type="text" ng-model='updatedPost.author'><br>
+      <input type="text" ng-model='updatedPost.title'><br>
+      <textarea  rows="8" cols="80" ng-model='updatedPost.body'></textarea><br>
+      <button ng-click='updatePost(updateId, updatedPost)'>Update</button><br>
       <hr>
       <pre>
         {{deleteId}}
