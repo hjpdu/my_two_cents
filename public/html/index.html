@@ -1,55 +1,11 @@
-<!DOCTYPE html>
-<html ng-app='two-cents'>
+!<!DOCTYPE html>
+<html>
   <head>
     <title>My Two Cents</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <div ng-controller='MainController'>
-      Delete:
-      <input type="text" ng-model='deleteId'><br>
-      <button class='btn btn-success' ng-click='delete(deleteId)'>Bye</button><br>
+    <div>
 
-      Author:
-      <input type="text" ng-model='newPost.author'><br>
-      Title:
-      <input type="text" ng-model='newPost.title'><br>
-      Body:
-      <textarea rows="8" cols="80" ng-model='newPost.body'></textarea><br>
-      <button class="btn btn-default" ng-click='create(newPost)'>Create</button>
-
-      <hr>
-      Get One:
-      <input type="text" ng-model='getId'><br>
-      <button class='btn btn-success' ng-click='getOne(getId)'>Get One</button><br>
-      {{ selectedPost }}
-      <button class='btn btn-default' ng-click='getSelectedPost()'>Get Select</button>
-      <hr>
-      Update:
-      <input type="text" ng-model='updateId'><br>
-      <input type="text" ng-model='updatedPost.author'><br>
-      <input type="text" ng-model='updatedPost.title'><br>
-      <textarea  rows="8" cols="80" ng-model='updatedPost.body'></textarea><br>
-      <button ng-click='updatePost(updateId, updatedPost)'>Update</button><br>
-      <hr>
-      <pre>
-        {{deleteId}}
-      </pre>
-      <pre>
-        {{posts | json}}
-      </pre>
-
-      <!-- <button ng-click='getPosts(posts)'> Get All Posts</button>
-      <ul>
-        <li ng-repeat='post in posts track by $index'>
-          Title: {{post.title}}
-        </li>
-      </ul> -->
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/controllers/main.controller.js"></script>
-    <script src="js/services/post.service.js"></script>
   </body>
 </html>
