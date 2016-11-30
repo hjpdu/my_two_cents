@@ -32,5 +32,10 @@ postSchema.pre('findOneAndUpdate', function(){
   this.update({}, { $set: {postDate: new Date()}}); //uses direct update since there's no query
 });
 
+postSchema.post('findOneAndUpdate', function(post){
+  post.summary = post.body.slice(0,100) + '...';
+  post.save();
+});
+
 var Post = mongoose.model('Post', postSchema);
 module.exports = Post;
