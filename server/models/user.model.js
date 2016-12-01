@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var crypto = require('crypto'); //no npm install necessary
+var jwt = require('jsonwebtoken');
+var signature = process.env.SIGNATURE || require('../../config.js').signature;
 
 var userSchema = new Schema({
   email: {
@@ -24,15 +26,26 @@ var userSchema = new Schema({
 
 userSchema.methods.setPassword = function(password){
   this.salt = crypto.randomBytes(16).toString('hex'); // 16 byte string
-  this.hash = crypto.pbkdf22Sync(password, this.salt, 1000, 64)
+  this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64)
                     .toString('hex');
 };
 userSchema.methods.validPassword = function(password){
-  var hash = crypto.pbkdf22Sync(password, this.salt, 1000, 64)
+  var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64)
                    .toString('hex');
   return this.hash === hash; // if equal then correct pass has been provided
 };
-userSchema.methods.generateJwt = function(){};
+userSchema.methods.generateJwt = function(){
+  var expiration = new Date();
+  expiration.setDate(expiration.getDate() + 7); // this moves the time to 7 days after current set and getDate manipulate the days
+
+  return jwt.sign({
+    _id: this._id,
+    email: this.email,
+    exp: parseInt(expiration.getTime() / 1000)
+  }, signature);
+
+
+};
 
 var User = mongoose.model('User', userSchema);
 module.exports = User;
