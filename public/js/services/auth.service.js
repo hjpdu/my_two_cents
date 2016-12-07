@@ -2,7 +2,7 @@
   angular.module('two-cents')
     .factory('AuthService', AuthService);
 
-  AuthService.$inject = ['$http', '$$window'];
+  AuthService.$inject = ['$http', '$window'];
 
   function AuthService($http, $window){
     var localStorage = $window.localStorage;
