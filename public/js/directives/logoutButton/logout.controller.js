@@ -12,6 +12,5 @@
       AuthService.logout();
       $location.path('/login');
     }
-
   }
 }());

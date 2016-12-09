@@ -9,8 +9,8 @@
         .when('/', {
           templateUrl: 'html/views/home.html',
           controller: "HomeController",
-          access:{
-            restricted: true
+          access: {
+            restricted: false
           }
         })
         .when('/login', {
@@ -30,7 +30,11 @@
         .when('/profile/:username', {
           templateUrl: 'html/views/profile.html',
           controller: 'ProfileController',
+<<<<<<< HEAD
           access:{
+=======
+          access: {
+>>>>>>> 2926bb8c747c625e48e31cb02a124ce8c358907f
             restricted: true
           }
         })
@@ -50,7 +54,11 @@
         })
         .otherwise({
           redirectTo: '/',
+<<<<<<< HEAD
           access: {
+=======
+          access:{
+>>>>>>> 2926bb8c747c625e48e31cb02a124ce8c358907f
             restricted: false
           }
         })

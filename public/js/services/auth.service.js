@@ -17,18 +17,18 @@
     };
 
     function currentUser(){
-        //grabbing _id would be very similar to this
-        if(isLoggedIn()){
-          var token = getToken();
-          var payload = token.split('.')[1];
-          payload = $window.atob(payload);
-          payload = JSON.parse(payload);
-          return{
-            email: payload.email
-          };
-        }else{
-          return null;
-        }
+      // grabbing _id would be very similar to this
+      if(isLoggedIn()){
+        var token = getToken();
+        var payload = token.split('.')[1];
+        payload = $window.atob(payload);
+        payload = JSON.parse(payload);
+        return {
+          email: payload.email
+        };
+      } else {
+        return null;
+      }
     }
     function saveToken(token){
       localStorage['two-cents-token'] = token;
@@ -44,8 +44,8 @@
         payload = $window.atob(payload);
         payload = JSON.parse(payload);
 
-        return payload.exp > Date.now()/1000; ///comparing expiration date to now
-      }else{
+        return payload.exp > Date.now() / 1000; //comparing the expiration date of our token to right now
+      } else {
         return false;
       }
     }

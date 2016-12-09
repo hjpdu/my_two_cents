@@ -3,6 +3,7 @@ var express = require('express');
 var passport = require('passport');
 var router = express.Router();
 var User = require('../models/user.model.js');
+var passport = require('passport');
 
 router.get('/users/profile/:userId', function(req, res){
   User.find({ _id: req.params.userId }, function(err, user){
